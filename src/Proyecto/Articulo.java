@@ -14,11 +14,15 @@ public class Articulo {
     private String resumen;
     private String contenido;
     private String palabrasClave;
+    private int codigoUnico =(int)(Math.random()*1000);
+ 
     public Articulo(String titulo,String resumen,String contenido,String palabraClave ){
         
         this.resumen=resumen;
         this.contenido=contenido;
         this.palabrasClave=palabraClave;
+
+        
     }
     public String getTitulo(){
         return titulo;
