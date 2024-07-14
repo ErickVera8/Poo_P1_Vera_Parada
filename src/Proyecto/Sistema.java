@@ -45,9 +45,15 @@ public class Sistema {
                     
                     
                     Revisor revisor = new Revisor(especialidad,numArticuloRevisado,nombre,apellido,correoElec,user,password);
+                    revisores.add(revisor);
                     
                     
                 }if(rol.equals("A")){
+                    String institucion=datos[6];
+                    String campoInvestigacion = datos[7];
+                    Autor autor = new Autor(institucion,campoInvestigacion,nombre,apellido,correoElec,user,password);
+                    autores.add(autor);
+                    
                     
                 }
                 
@@ -58,6 +64,19 @@ public class Sistema {
         }
         return usuarios;
     }
+    public static Usuario iniciarSesion(String user,String password,ArrayList<Usuario> usuarios){
+        for (Usuario usuario : usuarios) {
+            if (usuario.getUser().equals(user) && usuario.getPassword().equals(password)) {
+            return usuario;}
+        
+        }
+        return null;
+    }    
+    
+    
+    
+    
+
     
     
     public static void main(String[] args) {
@@ -78,7 +97,19 @@ public class Sistema {
                     //someterArticulo();
                     break;
                 case 2:
-                    //iniciarSesion();
+                    Scanner input = new Scanner(System.in);
+                    System.out.println("Ingrese su usuario");
+                    String user =input.nextLine();
+                    System.out.println("Ingrese su contraseña");
+                    String password = input.nextLine();
+                    Usuario usuario=iniciarSesion(user,password,usuarios);
+                    if(usuario.getRol().equals("R")){
+                        System.out.println("Bienvenido "+usuario.getNombre());
+                    }
+                    if(usuario.getRol().equals("E")){
+                        System.out.println("Bienvenido "+usuario.getNombre());
+                        
+                    }
                     
                     break;
                 default:
@@ -87,24 +118,13 @@ public class Sistema {
             }
 
         }
-    //public static void iniciarSesion(){
-        //Scanner sc = new Scanner(System.in);
-        //System.out.println("Ingrese su user: ");
-        //String user = sc.nextLine();
-        //System.out.println("Ingrese su password: ");
-        //String password = sc.nextLine();
-
-        }
-            
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }
 }
+    
+
+    
+
+    
+    
+
+

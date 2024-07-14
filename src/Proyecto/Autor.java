@@ -15,7 +15,7 @@ public class Autor extends Usuario{
 
     int aleatorio=(int)(Math.random()*1000);
 
-    public Autor(int codigoIdentificacion, String institucion, String campoInvestigacion, String nombre, String apellido,String correoElectronico,String user,String password) {
+    public Autor( String institucion, String campoInvestigacion, String nombre, String apellido,String correoElectronico,String user,String password) {
         super(nombre,apellido,correoElectronico,"A",user,password);
         this.codigoIdentificacion = aleatorio;
         this.institucion = institucion;
