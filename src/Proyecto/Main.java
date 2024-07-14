@@ -16,8 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Sistema a= new Sistema();
-        System.out.println(a.leerTxt("C:\\Users\\Erick\\Desktop\\textos\\pruebatxt.txt"));
+        
     }
     
 }

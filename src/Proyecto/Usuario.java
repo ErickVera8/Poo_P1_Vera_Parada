@@ -19,7 +19,7 @@ public class Usuario {
 
 
 
-    public Usuario(String nombre, String password, String correoElectronico, String apellido, String rol, String user) {
+    public Usuario(String nombre, String apellido, String correoElectronico, String user, String password, String rol) {
         this.nombre = nombre;
         this.password = password;
         this.correoElectronico = correoElectronico;
@@ -71,4 +71,10 @@ public class Usuario {
     public String getUser() {
         return user;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "nombre=" + nombre + ", password=" + password + ", correoElectronico=" + correoElectronico + ", apellido=" + apellido + ", rol=" + rol + ", user=" + user + '}';
+    }
+    
 }

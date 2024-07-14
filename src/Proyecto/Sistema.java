@@ -12,47 +12,38 @@ import java.util.Scanner;
  * @author Erick
  */
 public class Sistema {
-    public static ArrayList<Usuario> usuario;
-    public static ArrayList<Articulo> articulos;
+    
     
     //metodo para leer el txt
-    public String leerTxt(String direccion){
-        String texto="";
-        try{
-            BufferedReader bf = new BufferedReader(new FileReader(direccion));
-            String temp="";
-            String bfRead;
-            while((bfRead = bf.readLine())!= null){
-            temp = temp+bfRead+"\n";
+    public static ArrayList<Usuario> leerArchivoUsuario(String archivo) {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(", ");
+                String nombre = datos[0];
+                String apellido = datos[1];
+                String correoElec = datos[2];
+                String user = datos[3];
+                String password = datos[4];
+                String rol = datos[5];
+                Usuario usuario = new Usuario(nombre,apellido,correoElec,user,password,rol);
+                usuarios.add(usuario);
+                
             }
-            
-            texto = temp;
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             System.err.println("No se encontro archivo");
-            
         }
-        return texto;
+        return usuarios;
     }
-    //metodo para separar y crear los usuarios
-    //public Usuario crearUsuario(String texto){
-        //String[] linea = texto.split("\n");
-        //for(int i=0;i<linea.length;i++){
-             //String[] datos=linea[i].split(";");
-             //for(int j=0;j<datos.length;j++){
-                 //if(datos[5].equals("e")){
-                     //Usuario datos[2]=new Editor(datos[1],datos[2],datos[3],datos[4],datos[5],datos[6]);
-                     
-                     
-                 //}
-             //}
-        //}
-        
-        
-    //}
+    
+    
     public static void main(String[] args) {
+        ArrayList<Usuario> usuarios = Sistema.leerArchivoUsuario("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Proyecto\\Usuario.txt");
         Scanner sc = new Scanner(System.in);
-        
+         for (Usuario usuario : usuarios) {
+            System.out.println(usuario.toString());
+        }
         int op = 0;
         while (op!=3) {
             System.out.println("-------------Acceso al Sistema--------");
@@ -62,10 +53,10 @@ public class Sistema {
             sc.nextLine();
             switch (op) {
                 case 1:
-                    someterArticulo();
+                    //someterArticulo();
                     break;
                 case 2:
-                    iniciarSesion();
+                    //iniciarSesion();
                     
                     break;
                 default:
@@ -74,12 +65,12 @@ public class Sistema {
             }
 
         }
-    public static void iniciarSesion(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese su user: ");
-        String user = sc.nextLine();
-        System.out.println("Ingrese su password: ");
-        String password = sc.nextLine();
+    //public static void iniciarSesion(){
+        //Scanner sc = new Scanner(System.in);
+        //System.out.println("Ingrese su user: ");
+        //String user = sc.nextLine();
+        //System.out.println("Ingrese su password: ");
+        //String password = sc.nextLine();
 
         }
             
