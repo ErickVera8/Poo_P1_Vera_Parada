@@ -17,6 +17,9 @@ public class Sistema {
     //metodo para leer el txt
     public static ArrayList<Usuario> leerArchivoUsuario(String archivo) {
         ArrayList<Usuario> usuarios = new ArrayList<>();
+        ArrayList<Editor> editores = new ArrayList<>();
+        ArrayList<Autor> autores = new ArrayList<>();
+        ArrayList<Revisor> revisores = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -25,9 +28,29 @@ public class Sistema {
                 String apellido = datos[1];
                 String correoElec = datos[2];
                 String rol = datos[3];
+                String user= datos[4];
+                String password= datos[5];
                 
-                Usuario usuario = new Usuario(nombre,apellido,correoElec,rol);
+                Usuario usuario = new Usuario(nombre,apellido,correoElec,rol,user,password);
                 usuarios.add(usuario);
+                if(rol.equals("E")){
+                    String journal= datos[6];
+                    
+                    Editor editor = new Editor(journal, nombre,apellido,correoElec,user,password);
+                    editores.add(editor);
+                    
+                }if(rol.equals("R")){
+                    String especialidad = datos[6];
+                    int numArticuloRevisado = Integer.parseInt(datos[7]);
+                    
+                    
+                    Revisor revisor = new Revisor(especialidad,numArticuloRevisado,nombre,apellido,correoElec,user,password);
+                    
+                    
+                }if(rol.equals("A")){
+                    
+                }
+                
                 
             }
         } catch (IOException e) {

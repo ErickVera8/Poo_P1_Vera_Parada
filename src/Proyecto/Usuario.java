@@ -12,21 +12,26 @@ public class Usuario {
     private String correoElectronico;
     private String apellido;
     private String rol;
-    
-    
+    private String user;
+    private String password;
 
-
-
-
-
-
-    public Usuario(String nombre, String apellido, String correoElectronico, String rol) {
+    public Usuario(String nombre, String correoElectronico, String apellido, String rol, String user, String password) {
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
         this.apellido = apellido;
         this.rol = rol;
- 
+        this.user = user;
+        this.password = password;
     }
+    
+    
+
+
+
+
+
+
+    
 
 
     public String getNombre(){
@@ -58,10 +63,49 @@ public class Usuario {
         return rol;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", correoElectronico=" + correoElectronico + ", apellido=" + apellido + ", rol=" + rol + '}';
+        return "Usuario{" + "nombre=" + nombre + ", correoElectronico=" + correoElectronico + ", apellido=" + apellido + ", rol=" + rol + ", user=" + user + ", password=" + password + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        return Objects.equals(this.rol, other.rol);
+    }
+
+    
 
 
 
