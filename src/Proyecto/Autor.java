@@ -16,8 +16,8 @@ public class Autor extends Usuario{
     private String password;
     int aleatorio=(int)(Math.random()*1000);
 
-    public Autor(int codigoIdentificacion, String institucion, String campoInvestigacion, String user, String nombre, String password, String correoElectronico, String apellido) {
-        super(nombre,apellido,correoElectronico,user,password,"A");
+    public Autor(int codigoIdentificacion, String institucion, String campoInvestigacion, String nombre, String apellido,String correoElectronico,String user,String password) {
+        super(nombre,apellido,correoElectronico,"A");
         this.codigoIdentificacion = aleatorio;
         this.institucion = institucion;
         this.campoInvestigacion = campoInvestigacion;
@@ -50,26 +50,26 @@ public class Autor extends Usuario{
         this.campoInvestigacion = campoInvestigacion;
     }
 
-    @Override
     public String getUser() {
         return user;
     }
 
-    @Override
     public void setUser(String user) {
         this.user = user;
     }
 
-    @Override
     public String getPassword() {
         return password;
     }
 
-    @Override
     public void setPassword(String password) {
         this.password = password;
     }
- 
-    
-    
+
+    public int getAleatorio() {
+        return aleatorio;
+    }
+
+   
+  
 }

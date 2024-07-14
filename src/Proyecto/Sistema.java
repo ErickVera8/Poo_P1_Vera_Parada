@@ -24,10 +24,9 @@ public class Sistema {
                 String nombre = datos[0];
                 String apellido = datos[1];
                 String correoElec = datos[2];
-                String user = datos[3];
-                String password = datos[4];
-                String rol = datos[5];
-                Usuario usuario = new Usuario(nombre,apellido,correoElec,user,password,rol);
+                String rol = datos[3];
+                
+                Usuario usuario = new Usuario(nombre,apellido,correoElec,rol);
                 usuarios.add(usuario);
                 
             }
