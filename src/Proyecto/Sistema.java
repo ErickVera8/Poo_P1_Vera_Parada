@@ -41,7 +41,7 @@ public class Sistema {
     public static void main(String[] args) {
         ArrayList<Usuario> usuarios = Sistema.leerArchivoUsuario("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Proyecto\\Usuario.txt");
         Scanner sc = new Scanner(System.in);
-         for (Usuario usuario : usuarios) {
+        for (Usuario usuario : usuarios) {
             System.out.println(usuario.toString());
         }
         int op = 0;

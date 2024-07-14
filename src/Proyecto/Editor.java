@@ -11,9 +11,14 @@ package Proyecto;
 public class Editor extends Usuario{
     private String Journal;
 
-    public Editor(String Journal, String nombre, String password, String correoElectronico, String apellido, String rol, String user) {
-        super(nombre, password, correoElectronico, apellido, "e", user);
+    public Editor(String Journal, String nombre, String apellido, String correoElectronico, String user, String password) {
+        super(nombre,apellido,correoElectronico,user,password,"E");
         this.Journal = Journal;
+    }
+
+    @Override
+    public String toString() {
+        return "Editor{" + "Journal=" + Journal + '}';
     }
     
     
