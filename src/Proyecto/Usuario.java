@@ -8,18 +8,26 @@ import java.util.Objects;
  * @author Erick
  */
 public class Usuario {
-    private String nombre;
-    private String correoElectronico;
-    private String apellido;
-    private String rol;
-    private String user;
-    private String password;
+    protected String nombre;
+    protected String correoElectronico;
+    protected String apellido;
+    protected RolUsuario rol;
+    protected String user;
+    protected String password;
 
-    public Usuario(String nombre, String correoElectronico, String apellido, String rol, String user, String password) {
+    public Usuario(String nombre, String correoElectronico, String apellido, RolUsuario rol, String user, String password) {
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
         this.apellido = apellido;
         this.rol = rol;
+        this.user = user;
+        this.password = password;
+    }
+
+    public Usuario(String nombre, String correoElectronico, String apellido, String user, String password) {
+        this.nombre = nombre;
+        this.correoElectronico = correoElectronico;
+        this.apellido = apellido;
         this.user = user;
         this.password = password;
     }
@@ -55,11 +63,9 @@ public class Usuario {
     public void setApellido(String apellido){
         this.apellido=apellido;
     }
-        public void setRol(String rol) {
-        this.rol = rol;
-    }
 
-    public String getRol() {
+
+    public RolUsuario getRol() {
         return rol;
     }
 
@@ -84,26 +90,7 @@ public class Usuario {
         return "Usuario{" + "nombre=" + nombre + ", correoElectronico=" + correoElectronico + ", apellido=" + apellido + ", rol=" + rol + ", user=" + user + ", password=" + password + '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        return Objects.equals(this.rol, other.rol);
-    }
+    
 
     
 
